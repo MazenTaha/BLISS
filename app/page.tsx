@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import HeroSection from './components/HeroSection';
 import LanguageToggle from './components/LanguageToggle';
 import VideoSection from './components/VideoSection';
 
@@ -17,7 +18,7 @@ export default function Home() {
       tagline1: "Unique design and materials",
       tagline2: "The international specifications",
       tagline3: "VIP experience",
-      subtitle: "Crafting Excellence Since 2025",
+      subtitle: "Crafting Excellence Since",
       cta: "Discover More"
     },
     ar: {
@@ -33,96 +34,84 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white text-black relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-black/5 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-black/3 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-black/2 rounded-full blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
-      </div>
+      {/* Hero Section with Image */}
+      <HeroSection />
 
-      {/* Header */}
-      <header className="sticky top-0 z-50 glass-effect border-b border-black/10">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-4 group">
-            <div className="w-14 h-14 bg-black rounded-2xl flex items-center justify-center shadow-modern group-hover:scale-110 transition-transform duration-300">
-              <span className="text-white font-display font-bold text-2xl">B</span>
+      {/* Content Section */}
+      <section className="relative bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-24 md:py-32">
+          {/* Background Elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-20 left-10 w-72 h-72 bg-black/5 rounded-full blur-3xl animate-float"></div>
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-black/3 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+          </div>
+
+          <div className={`space-y-8 md:space-y-12 text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            {/* Subtitle */}
+            <div className="animate-fade-in">
+              <p className="text-lg md:text-xl text-gray-600 font-medium tracking-wide uppercase">
+                {t.subtitle}
+              </p>
             </div>
-            <span className="text-3xl font-display font-bold tracking-tight gradient-text">BLISS</span>
-          </div>
 
-          {/* Language Toggle */}
-          <LanguageToggle language={language} setLanguage={setLanguage} />
-        </div>
-      </header>
+            {/* Main Headlines */}
+            <div className="space-y-6 md:space-y-8">
+              <h1 className={`text-5xl md:text-7xl lg:text-8xl font-display font-black leading-[0.8] tracking-[-0.02em] ${
+                language === 'ar' ? 'font-arabic' : ''
+              } animate-slide-up`}>
+                <span className="block relative">
+                  <span className="bg-gradient-to-r from-black via-gray-900 to-black bg-clip-text text-transparent text-glow">
+                    {t.tagline1}
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-gray-300 via-white to-gray-300 bg-clip-text text-transparent opacity-30 blur-sm">
+                    {t.tagline1}
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-black via-gray-900 to-black bg-clip-text text-transparent opacity-20 blur-[2px]">
+                    {t.tagline1}
+                  </span>
+                </span>
+              </h1>
+              
+              <h2 className={`text-4xl md:text-5xl lg:text-6xl font-display font-extrabold leading-[0.85] tracking-[-0.01em] ${
+                language === 'ar' ? 'font-arabic' : ''
+              } animate-slide-up`} style={{animationDelay: '0.2s'}}>
+                <span className="block relative">
+                  <span className="bg-gradient-to-r from-gray-800 via-black to-gray-800 bg-clip-text text-transparent text-glow">
+                    {t.tagline2}
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 bg-clip-text text-transparent opacity-20 blur-[1px]">
+                    {t.tagline2}
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-gray-800 via-black to-gray-800 bg-clip-text text-transparent opacity-15 blur-[1.5px]">
+                    {t.tagline2}
+                  </span>
+                </span>
+              </h2>
+              
+              <h3 className={`text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[0.9] tracking-wide ${
+                language === 'ar' ? 'font-arabic' : ''
+              } animate-slide-up`} style={{animationDelay: '0.4s'}}>
+                <span className="block relative">
+                  <span className="bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent text-glow">
+                    {t.tagline3}
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent opacity-25 blur-[0.5px]">
+                    {t.tagline3}
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent opacity-10 blur-[1px]">
+                    {t.tagline3}
+                  </span>
+                </span>
+              </h3>
+            </div>
 
-      {/* Hero Section */}
-      <section className="relative max-w-7xl mx-auto px-6 py-24 md:py-40">
-        <div className={`space-y-8 md:space-y-12 text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          {/* Subtitle */}
-          <div className="animate-fade-in">
-            <p className="text-lg md:text-xl text-gray-600 font-medium tracking-wide uppercase">
-              {t.subtitle}
-            </p>
-          </div>
-
-          {/* Main Headlines */}
-          <div className="space-y-6 md:space-y-8">
-            <h1 className={`text-5xl md:text-7xl lg:text-8xl font-display font-black leading-[0.8] tracking-[-0.02em] ${
-              language === 'ar' ? 'font-arabic' : ''
-            } animate-slide-up`}>
-              <span className="block relative">
-                <span className="bg-gradient-to-r from-black via-gray-900 to-black bg-clip-text text-transparent text-glow">
-                  {t.tagline1}
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-gray-300 via-white to-gray-300 bg-clip-text text-transparent opacity-30 blur-sm">
-                  {t.tagline1}
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-black via-gray-900 to-black bg-clip-text text-transparent opacity-20 blur-[2px]">
-                  {t.tagline1}
-                </span>
-              </span>
-            </h1>
-            
-            <h2 className={`text-4xl md:text-5xl lg:text-6xl font-display font-extrabold leading-[0.85] tracking-[-0.01em] ${
-              language === 'ar' ? 'font-arabic' : ''
-            } animate-slide-up`} style={{animationDelay: '0.2s'}}>
-              <span className="block relative">
-                <span className="bg-gradient-to-r from-gray-800 via-black to-gray-800 bg-clip-text text-transparent text-glow">
-                  {t.tagline2}
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 bg-clip-text text-transparent opacity-20 blur-[1px]">
-                  {t.tagline2}
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-gray-800 via-black to-gray-800 bg-clip-text text-transparent opacity-15 blur-[1.5px]">
-                  {t.tagline2}
-                </span>
-              </span>
-            </h2>
-            
-            <h3 className={`text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[0.9] tracking-wide ${
-              language === 'ar' ? 'font-arabic' : ''
-            } animate-slide-up`} style={{animationDelay: '0.4s'}}>
-              <span className="block relative">
-                <span className="bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent text-glow">
-                  {t.tagline3}
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent opacity-25 blur-[0.5px]">
-                  {t.tagline3}
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent opacity-10 blur-[1px]">
-                  {t.tagline3}
-                </span>
-              </span>
-            </h3>
-          </div>
-
-          {/* CTA Button */}
-          <div className="animate-slide-up pt-8" style={{animationDelay: '0.6s'}}>
-            <button className="group relative px-12 py-4 bg-black text-white font-display font-semibold text-lg rounded-full overflow-hidden transition-all duration-300 hover:scale-105 shadow-modern">
-              <span className="relative z-10">{t.cta}</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
+            {/* CTA Button */}
+            <div className="animate-slide-up pt-8" style={{animationDelay: '0.6s'}}>
+              <button className="group relative px-12 py-4 bg-black text-white font-display font-semibold text-lg rounded-full overflow-hidden transition-all duration-300 hover:scale-105 shadow-modern">
+                <span className="relative z-10">{t.cta}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+            </div>
           </div>
         </div>
       </section>
