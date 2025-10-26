@@ -161,7 +161,7 @@ export default function Home() {
                   Call Us Now
                 </h3>
                 <a 
-                  href="tel:+1234567890" 
+                  href="tel:+21893-4999935" 
                   className="inline-block text-3xl md:text-4xl font-display font-bold text-black hover:text-gray-600 transition-colors duration-300"
                 >
                   +1 (234) 567-890
