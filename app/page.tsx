@@ -161,10 +161,10 @@ export default function Home() {
                   Call Us Now
                 </h3>
                 <a 
-                  href="tel:+21893-4999935" 
+                  href="tel:+218934999935" 
                   className="inline-block text-3xl md:text-4xl font-display font-bold text-black hover:text-gray-600 transition-colors duration-300"
                 >
-                  +1 (234) 567-890
+                  +21893-4999935
                 </a>
                 <p className="text-gray-500 text-sm">
                   Available 24/7
