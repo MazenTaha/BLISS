@@ -58,8 +58,12 @@ export default function HeroSection() {
 
         {/* Main Title */}
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-light uppercase leading-tight mb-8 max-w-4xl tracking-wide">
-          Experience the Perfect Balance of Elegance and Comfort
-        </h2>
+          The final frontier of luxurious living.        </h2>
+
+        {/* Description */}
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          The ultimate expression of effortless, personalized, intelligent and luxurious living. The ultimate unbothered pleasure, peace and life.
+        </p>
 
         {/* Navigation Buttons */}
         <div className="flex items-center space-x-8">

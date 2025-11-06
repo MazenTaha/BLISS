@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import HeroSection from './components/HeroSection';
-import LanguageToggle from './components/LanguageToggle';
 import VideoSection from './components/VideoSection';
 
 export default function Home() {
@@ -155,9 +154,7 @@ export default function Home() {
                 >
                   +21893-4999935
                 </a>
-                <p className="text-gray-500 text-sm">
-                  Available 24/7
-                </p>
+                <p className="text-sm text-gray-600 mt-2">Available 24/7</p>
               </div>
 
               {/* Decorative Elements */}
